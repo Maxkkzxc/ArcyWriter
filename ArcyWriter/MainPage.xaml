@@ -2,35 +2,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ArcyWriter.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-
     <VerticalStackLayout Spacing="20" Padding="30"
                          VerticalOptions="FillAndExpand">
-
         <Label Text="ArcyWriter"
                FontSize="32"
                HorizontalOptions="Center"
                FontAttributes="Bold"
                TextColor="{DynamicResource PrimaryTextColor}" />
-
         <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
-
         <Label Text="Недавние проекты"
                FontSize="16"
-               HorizontalOptions="Center">
-
-        </Label>
+               HorizontalOptions="Center" />
 
         <Grid Padding="30" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Frame x:Name="graphicsFrame"
-           BackgroundColor="#373737"
-           BorderColor="White"
-           WidthRequest="140"
-           HeightRequest="180"
-           VerticalOptions="Center"
-           HorizontalOptions="Center"
-           CornerRadius="5"
-           HasShadow="False">
-                <GraphicsView x:Name="graphicsView" />
+            <Frame x:Name="addProjectFrame"
+                   BackgroundColor="#373737"
+                   BorderColor="White"
+                   WidthRequest="140"
+                   HeightRequest="180"
+                   CornerRadius="5"
+                   HasShadow="False">
+                <Grid>
+                    <GraphicsView x:Name="graphicsView" />
+                    <Label Text="+" 
+                           FontSize="60" 
+                           FontFamily="FontAwesome"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="White"
+                           ZIndex="1" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAddProjectTapped"/>
+                </Frame.GestureRecognizers>
             </Frame>
 
             <Grid x:Name="tooltipContainer"
@@ -39,32 +43,45 @@
                   HorizontalOptions="Center"
                   TranslationY="-115">
                 <Frame x:Name="tooltipFrame"
-               BackgroundColor="Gray"
-                    Opacity="0.9"
-               Padding="8"
-               CornerRadius="5"
-               WidthRequest="140"
-                    HeightRequest="35"
-               VerticalOptions="Start"
-               HorizontalOptions="Center">
+                       BackgroundColor="Gray"
+                       Opacity="0.9"
+                       Padding="8"
+                       CornerRadius="5"
+                       WidthRequest="140"
+                       HeightRequest="35"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center">
                     <Label Text="Создать новый роман"
-                   TextColor="White"
-                   FontSize="12"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
+                           TextColor="White"
+                           FontSize="12"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
                 </Frame>
             </Grid>
         </Grid>
 
-
+        <CollectionView ItemsSource="{Binding Projects}" VerticalOptions="CenterAndExpand">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="4" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#1c1c1c" Padding="10"
+                           WidthRequest="140" HeightRequest="180"
+                           CornerRadius="5">
+                        <StackLayout VerticalOptions="Center" Spacing="10">
+                            <Label Text="{Binding Title}" TextColor="Gray" FontSize="14" HorizontalTextAlignment="Center" />
+                            <Label Text="BY" TextColor="LightGray" FontSize="12" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Author}" TextColor="Gray" FontSize="12"  HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
         <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
-        
         <Label Text="© 2025 ArcyWriter"
                TextColor="{DynamicResource FooterTextColor}"
                HorizontalOptions="Center" />
-
-
     </VerticalStackLayout>
-
 </ContentPage>

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcyWriter", "ArcyWriter\ArcyWriter.csproj", "{1A6F67F0-BB31-4498-B634-880658EE4277}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcyWriter.DAL", "ArcyWriter.DAL\ArcyWriter.DAL.csproj", "{53702F25-F11A-48A2-8FDE-6792FCCF0DE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{1A6F67F0-BB31-4498-B634-880658EE4277}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A6F67F0-BB31-4498-B634-880658EE4277}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A6F67F0-BB31-4498-B634-880658EE4277}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{53702F25-F11A-48A2-8FDE-6792FCCF0DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53702F25-F11A-48A2-8FDE-6792FCCF0DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53702F25-F11A-48A2-8FDE-6792FCCF0DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53702F25-F11A-48A2-8FDE-6792FCCF0DE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

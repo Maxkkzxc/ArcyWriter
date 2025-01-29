@@ -400,3 +400,7 @@ FodyWeavers.xsd
 # Ignore appsettings.json
 appsettings.json
 
+*.db
+*.sqlite
+*.db-wal
+*.db-shm

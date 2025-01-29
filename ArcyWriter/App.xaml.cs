@@ -1,13 +1,21 @@
-﻿namespace ArcyWriter
+﻿using ArcyWriter.DAL;
+using Microsoft.EntityFrameworkCore;
+
+namespace ArcyWriter
 {
     public partial class App : Application
     {
-        public App()
+        public App(MainPage mainPage, AppDbContext dbContext)
         {
             InitializeComponent();
 
-            ApplyTheme(AppTheme.Dark);
+            if (dbContext.Database.GetPendingMigrations().Any())
+            {
+                dbContext.Database.Migrate();
+            }
 
+            MainPage = mainPage;
+            ApplyTheme(AppTheme.Dark);
             MainPage = new AppShell();
         }
 
